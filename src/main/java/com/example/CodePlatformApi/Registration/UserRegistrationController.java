@@ -37,18 +37,18 @@ public class UserRegistrationController {
         return registrationService.register(request);
     }
 
-//    @Operation(summary = "api/v1/registration/confirm", description = "validates token", tags = "GET")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode ="200", description = "Confirmed",
-//
-//                    content = {@Content(mediaType = "application/json",
-//
-//                            schema = @Schema(implementation = RegistrationRequest.class))}),
-//            @ApiResponse(responseCode = "404", description = "email already taken",
-//                    content = @Content)
-//    })
-//    @GetMapping(path = "confirm")
-//    public  String confirm(@RequestParam("token") String token){
-//        return registrationService.confirmToken(token);
-//    }
+    @Operation(summary = "api/v1/registration/confirm", description = "validates token", tags = "GET")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode ="200", description = "Confirmed",
+
+                    content = {@Content(mediaType = "application/json",
+
+                            schema = @Schema(implementation = RegistrationRequest.class))}),
+            @ApiResponse(responseCode = "404", description = "email already taken",
+                    content = @Content)
+    })
+    @GetMapping(path = "confirm")
+    public  String confirm(@RequestParam("token") String token){
+        return registrationService.confirmToken(token);
+    }
 }
