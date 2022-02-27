@@ -1,6 +1,8 @@
 package com.example.CodePlatformApi.Registration;
 
 
+import com.example.CodePlatformApi.appuser.AppUser;
+import com.example.CodePlatformApi.appuser.AppUserService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -9,8 +11,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path= "api/v1/registration")
+@CrossOrigin(origins = "*")
 @AllArgsConstructor
 public class UserRegistrationController {
 
@@ -32,18 +37,18 @@ public class UserRegistrationController {
         return registrationService.register(request);
     }
 
-    @Operation(summary = "api/v1/registration/confirm", description = "validates token", tags = "GET")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode ="200", description = "Confirmed",
-
-                    content = {@Content(mediaType = "application/json",
-
-                            schema = @Schema(implementation = RegistrationRequest.class))}),
-            @ApiResponse(responseCode = "404", description = "email already taken",
-                    content = @Content)
-    })
-    @GetMapping(path = "confirm")
-    public  String confirm(@RequestParam("token") String token){
-        return registrationService.confirmToken(token);
-    }
+//    @Operation(summary = "api/v1/registration/confirm", description = "validates token", tags = "GET")
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode ="200", description = "Confirmed",
+//
+//                    content = {@Content(mediaType = "application/json",
+//
+//                            schema = @Schema(implementation = RegistrationRequest.class))}),
+//            @ApiResponse(responseCode = "404", description = "email already taken",
+//                    content = @Content)
+//    })
+//    @GetMapping(path = "confirm")
+//    public  String confirm(@RequestParam("token") String token){
+//        return registrationService.confirmToken(token);
+//    }
 }

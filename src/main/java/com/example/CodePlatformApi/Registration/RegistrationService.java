@@ -15,8 +15,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class RegistrationService {
 
-    private final  EmailValidator emailValidator;
-    private final  AppUserService appUserService;
+    private final EmailValidator emailValidator;
+    private final AppUserService appUserService;
     private  final  ConfirmationTokenService confirmationTokenService;
     private final EmailSender emailSender;
 
